@@ -1,0 +1,168 @@
+<%- include('../partials/header.ejs')%>
+    <div class="container">
+        <div class="page-inner">
+            <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
+                <div>
+                    <h3 class="fw-bold mb-3">Profile Page</h3>
+                    <h6 class="op-7 mb-2">Edit Profile Details</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-stats card-round">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-icon">
+                                    <div class="icon-big text-center">
+                                        <img src="/img/examples/example1-300x300.jpg" alt="<%= user.username %>"
+                                            class="avatar-img rounded-circle" />
+                                    </div>
+                                </div>
+                                <div class="col col-stats ms-3 ms-sm-0">
+                                    <div class="numbers">
+                                        <p class="card-category">UserProfile</p>
+                                        <h4 class="card-title">
+                                            UserProfile Image
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-stats card-round h-75">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-icon">
+                                    <div class="icon-big text-center icon-info bubble-shadow-small">
+                                        <i class="fas fa-user-check"></i>
+                                    </div>
+                                </div>
+                                <div class="col col-stats ms-3 ms-sm-0">
+                                    <div class="numbers">
+                                        <p class="card-category">Username</p>
+                                        <h4 class="card-title">
+                                            <%= user.username %>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-stats card-round ">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-icon">
+                                    <div class="icon-big text-center icon-success bubble-shadow-small">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <div class="col col-stats ms-3 ms-sm-0">
+                                    <div class="numbers">
+                                        <p class="card-category">Email</p>
+                                        <h4 class="card-title">
+                                            <%= user.email %>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-stats card-round">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-icon">
+                                    <div class="icon-big text-center icon-secondary bubble-shadow-small">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                </div>
+                                <div class="col col-stats ms-3 ms-sm-0">
+                                    <div class="numbers">
+                                        <p class="card-category">Phone</p>
+                                        <h4 class="card-title">
+                                            <%= user.phone %>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-round">
+                        <div class="card-body">
+                            <div class="card-head-row card-tools-still-right">
+                                <div class="card-title">Change Password</div>
+
+                            </div>
+                            <div class="card-list py-4">
+                                <form action="/user/change-pass/<%= user.id %>" method="post">
+                                    <div class="mb-3">
+                                        <label for="oldPassword" class="form-label fs-5 fw-bold mb-0">Old
+                                            Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1"
+                                            name="oldPassword">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="newPassword" class="form-label fs-5 fw-bold mb-0">New
+                                            Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1"
+                                            name="newPassword">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="confPassword" class="form-label fs-5 fw-bold mb-0">Confirm
+                                            Password</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1"
+                                            name="confPassword">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary fs-5 fw-bold">Update Password</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card card-round">
+                        <div class="card-body">
+                            <div class="card-head-row card-tools-still-right">
+                                <div class="card-title">Edit User Details</div>
+
+                            </div>
+                            <div class="card-list py-4">
+                                <form action="/user/edit-user-detail/<%= user.id %>" method="post">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label fs-5 fw-bold mb-0">Username</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1"
+                                            name="username" value="<%= user.username %>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label fs-5 fw-bold mb-0">Email</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" name="email"
+                                            value="<%= user.email %>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label fs-5 fw-bold mb-0">Phone</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" name="phone"
+                                            value="<%= user.phone %>">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary fs-5 fw-bold">Update User
+                                        Details</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs')%>
+    

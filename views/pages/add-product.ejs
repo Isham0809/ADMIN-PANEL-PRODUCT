@@ -1,0 +1,138 @@
+<%- include('../partials/header.ejs')%>
+    <div class="container">
+        <div class="page-inner">
+            <div class="page-header">
+                <h3 class="fw-bold mb-3">Add Product Page</h3>
+                <ul class="breadcrumbs mb-3">
+                    <li class="nav-home">
+                        <a href="/">
+                            <i class="icon-home"></i>
+                        </a>
+                    </li>
+                    <li class="separator">
+                        <i class="icon-arrow-right"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Product</a>
+                    </li>
+                    <li class="separator">
+                        <i class="icon-arrow-right"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Add Product</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-12 col-lg-12 col-xl-6">
+                        <div class="card">
+                            <form class="form-horizontal" action="/product/add-product" method="post"
+                                enctype="multipart/form-data">
+                                <div class="card-header">
+                                    <div class="card-title">Add Product Details</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="form-group">
+                                                <div class="input-group input-group-lg">
+                                                    <span class="input-group-text" id="inputGroup-sizing-lg">
+                                                        <i class="fas fa-box-open"></i>
+                                                    </span>
+                                                    <input type="text" class="form-control"
+                                                        aria-describedby="inputGroup-sizing-lg"
+                                                        placeholder="Enter Product Name" name="name" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-lg">
+                                                    <span class="input-group-text" id="inputGroup-sizing-lg">
+                                                        <i class="fas fa-rupee-sign"></i>
+                                                    </span>
+                                                    <input type="text" class="form-control"
+                                                        aria-describedby="inputGroup-sizing-lg" id="price"
+                                                        placeholder="Enter Price" name="price" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-lg">
+                                                    <span class="input-group-text" id="inputGroup-sizing-lg">
+                                                        <i class="fas fa-th-large"></i>
+                                                    </span>
+                                                    <select class="form-select" name="categoryId" aria-label="Default select example">
+                                                        <option value="" disabled selected>-- Select Category --
+                                                        </option>
+                                                        <% categorys.map((category)=> { %>
+                                                            <option value="<%= category.id %>">
+                                                                <%= category.categoryName %>
+                                                            </option>
+                                                            <% })%>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-lg">
+                                                    <span class="input-group-text" id="inputGroup-sizing-lg">
+                                                        <i class="fas fa-th-list"></i>
+                                                    </span>
+                                                    <select class="form-select" name="subCategoryId" aria-label="Default select example">
+                                                        <option value="" disabled selected>-- Select Sub Category --
+                                                        </option>
+                                                        <% subCategorys.map((subCategory)=> { %>
+                                                            <option value="<%= subCategory.id %>">
+                                                                <%= subCategory.subCategoryName %>
+                                                            </option>
+                                                            <% })%>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-lg">
+                                                    <span class="input-group-text" id="inputGroup-sizing-lg">
+                                                        <i class="fas fa-shield-alt"></i>
+                                                    </span>
+                                                    <select class="form-select" name="brandId" aria-label="Default select example">
+                                                        <option value="" disabled selected>-- Select Brand --
+                                                        </option>
+                                                        <% brands.map((brand)=> { %>
+                                                            <option value="<%= brand.id %>">
+                                                                <%= brand.brandName %>
+                                                            </option>
+                                                            <% })%>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-lg">
+                                                    <span class="input-group-text" id="inputGroup-sizing-lg">
+                                                        <i class="fas fa-info-circle"></i>
+                                                    </span>
+                                                    <textarea class="form-control"
+                                                        aria-describedby="inputGroup-sizing-lg" id="description"
+                                                        placeholder="Write Description" name="description"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group input-group-lg">
+                                                    <span class="input-group-text" id="inputGroup-sizing-lg">
+                                                        <i class="fas fa-image"></i>
+                                                    </span>
+                                                    <input type="file" class="form-control"
+                                                        aria-describedby="inputGroup-sizing-lg" name="image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-action p-3">
+                                        <button class="btn btn-success fs-5" type="submit">Add Product</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs')%>

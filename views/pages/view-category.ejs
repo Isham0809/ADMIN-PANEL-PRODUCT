@@ -1,0 +1,67 @@
+<%- include('../partials/header.ejs')%>
+    <div class="container">
+        <div class="page-inner">
+            <div class="page-header">
+                <h3 class="fw-bold mb-3">View Category Page</h3>
+                <ul class="breadcrumbs mb-3">
+                    <li class="nav-home">
+                        <a href="#">
+                            <i class="icon-home"></i>
+                        </a>
+                    </li>
+                    <li class="separator">
+                        <i class="icon-arrow-right"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Category</a>
+                    </li>
+                    <li class="separator">
+                        <i class="icon-arrow-right"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">View Category</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Category Details</div>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">SR No.</th>
+                                        <th scope="col" class="text-center">Image</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% let count = 0;
+                                        categorys.map((cat,index) => { 
+                                        let {image,categoryName,id} = cat
+                                        count++  
+                                    %>
+                                    <tr>
+                                        <td><%= count %></td>
+                                        <td class="text-center">
+                                            <img class="rounded-circle" src="../<%= image %>" alt="<%= categoryName %>" height="150px" width="150px">
+                                        </td>
+                                        <td><%= categoryName %></td>
+                                        <td> 
+                                            <a href="./delete-category/<%= id %>" class="btn btn-outline-danger">Delete</a>
+                                            <a href="./edit-category/<%= id %>" class="btn btn-outline-warning">Edit</a></td>
+                                    </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs')%>

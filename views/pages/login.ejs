@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+    <link rel="icon" href="/img/kaiadmin/favicon.ico" type="image/x-icon" />
+
+    <!-- Fonts and icons -->
+    <script src="/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+        WebFont.load({
+            google: { families: ["Public Sans:300,400,500,600,700"] },
+            custom: {
+                families: [
+                    "Font Awesome 5 Solid",
+                    "Font Awesome 5 Regular",
+                    "Font Awesome 5 Brands",
+                    "simple-line-icons",
+                ],
+                urls: ["/css/fonts.min.css"],
+            },
+            active: function () {
+                sessionStorage.fonts = true;
+            },
+        });
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/plugins.min.css" />
+    <link rel="stylesheet" href="../../css/kaiadmin.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f7fd;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 6px 15px 0 rgba(69, 65, 78, .1)
+        }
+
+        .form-title {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex vh-100 justify-content-center align-items-center">
+            <div class="form-container w-50">
+                <h3 class="form-title text-center fs-2">Log In</h3>
+                <form action="" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label fs-5">Username</label>
+                        <input type="text" class="form-control fs-5" id="username" name="username"
+                            placeholder="Enter your username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label fs-5">Password</label>
+                        <input type="password" class="form-control fs-5" id="password" name="password"
+                            placeholder="Enter your password">
+                    </div>
+
+                    <div class="mb-3 d-flex justify-content-between">
+                        <a href="/user/recover-page" class="text-white btn btn-primary fs-5">Forgot Password ?</a>
+                        <button type="submit" class="btn btn-success fs-5">Log In</button>
+                    </div>
+                    
+                    <p class="text-center mt-3 fs-5">
+                        Don't have an account? <a href="/user/signup">Sign Up</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS Bundle -->
+    <script src="../../js/core/jquery-3.7.1.min.js"></script>
+    <script src="../../js/core/popper.min.js"></script>
+    <script src="../../js/core/bootstrap.min.js"></script>
+
+    <!-- Kaiadmin JS -->
+    <script src="/js/kaiadmin.min.js"></script>
+
+    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+    <script src="/js/setting-demo.js"></script>
+    <script src="/js/demo.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+
+<% if (locals.flash.success.length > 0) { %>
+  <script>
+    Swal.fire({
+      title: "Success",
+      text: "<%= locals.flash.success %>",
+      icon: "success"
+    });
+  </script>
+  <% } %>
+<% if (locals.flash.error.length > 0) { %>
+  <script>
+    Swal.fire({
+      title: "Error",
+      text: "<%= locals.flash.error %>",
+      icon: "error"
+    });
+  </script>
+  <% } %>
+</body>
+
+</html>
